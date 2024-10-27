@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tic Tac Toe</title>
+  <link rel="stylesheet" href="/src/client.css">
+  <script type="module" src="/src/client.ts"></script>
+</head>
+<body>
+
+  <!--
+    GAME VIEWPORT
+  -->
+
+  <div id="viewport">
+    <ttt-header id="header"></ttt-header>
+    <ttt-board  id="board"></ttt-board>
+  </div>
+
+  <!--
+    HEADER COMPONENT TEMPLATE
+  -->
+
+  <template id="ttt-header">
+    <form class="header-form">
+      <label>Display Name</label>
+      <input class="header-name-input" type="text" name="display-name" placeholder="E.g. Amy" autofocus>
+      <button class="header-join-button" disabled>
+        Start Game
+      </button>
+    </form>
+
+    <div class="header-details hidden">
+      <h1 class="header-player">
+        Hi
+        <span class="header-player-name"></span>
+      </h1>
+      <h2 class="header-opponent hidden">
+        You&nbsp;are
+        <ttt-dot class="header-player-dot hidden"></ttt-dot>
+        <ttt-cross class="header-player-cross hidden"></ttt-cross>
+        vs
+        <ttt-dot class="header-opponent-dot hidden"></ttt-dot>
+        <ttt-cross class="header-opponent-cross hidden"></ttt-cross>
+        <span class="header-opponent-name"></span>
+      </h2>
+      <h3 class="header-status"></h3>
+      <button class="header-replay-button hidden">Play Again</button>
+    </div>
+  </template>
+
+  <!--
+    BOARD COMPONENT TEMPLATE
+  -->
+
+  <template id="ttt-board">
+    <div class="board">
+
+      <div class="winning-line top-row"></div>
+      <div class="winning-line middle-row"></div>
+      <div class="winning-line bottom-row"></div>
+      <div class="winning-line left-column"></div>
+      <div class="winning-line center-column"></div>
+      <div class="winning-line right-column"></div>
+      <div class="winning-line down-diagonal"></div>
+      <div class="winning-line up-diagonal"></div>
+
+      <div class="board-row">
+        <div class="board-cell top-left">
+          <ttt-dot></ttt-dot>
+          <ttt-cross></ttt-cross>
+        </div>
+        <div class="board-cell top">
+          <ttt-dot></ttt-dot>
+          <ttt-cross></ttt-cross>
+        </div>
+        <div class="board-cell top-right">
+          <ttt-dot></ttt-dot>
+          <ttt-cross></ttt-cross>
+        </div>
+      </div>
+
+      <div class="board-row">
+        <div class="board-cell left">
+          <ttt-dot></ttt-dot>
+          <ttt-cross></ttt-cross>
+        </div>
+        <div class="board-cell center">
+          <ttt-dot></ttt-dot>
+          <ttt-cross></ttt-cross>
+        </div>
+        <div class="board-cell right">
+          <ttt-dot></ttt-dot>
+          <ttt-cross></ttt-cross>
+        </div>
+      </div>
+
+      <div class="board-row">
+        <div class="board-cell bottom-left">
+          <ttt-dot></ttt-dot>
+          <ttt-cross></ttt-cross>
+        </div>
+        <div class="board-cell bottom">
+          <ttt-dot></ttt-dot>
+          <ttt-cross></ttt-cross>
+        </div>
+        <div class="board-cell bottom-right">
+          <ttt-dot></ttt-dot>
+          <ttt-cross></ttt-cross>
+        </div>
+      </div>
+    </div>
+  </template>
+
+  <!--
+    DOT & CROSS PIECE TEMPLATES
+  -->
+
+  <template id="ttt-dot">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+      <path d="M224 96a160 160 0 1 0 0 320 160 160 0 1 0 0-320zM448 256A224 224 0 1 1 0 256a224 224 0 1 1 448 0z"/>
+    </svg>
+  </template>
+
+  <template id="ttt-cross">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+      <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/>
+    </svg>
+  </template>
+
+</body>
+</html>
